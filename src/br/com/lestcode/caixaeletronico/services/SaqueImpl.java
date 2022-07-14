@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class SaqueImpl implements Saque {
 
-    private int numeroDaConta;
     private double valor;
 
     private final MemoriaContaRepository repository;
@@ -20,6 +19,8 @@ public class SaqueImpl implements Saque {
     public Double execute() {
         Scanner entrada = new Scanner(System.in);
         Conta conta;
+        System.out.println("Digite o numero da conta: ");
+        int numeroDaConta = entrada.nextInt();
         conta = repository.findById(numeroDaConta);
         System.out.println(" Digite o valor a sacar entre as opções abaixo: ");
         System.out.println("R$10,00 / R$20,00 / R$50,00 / R$100,00");

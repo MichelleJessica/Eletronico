@@ -30,13 +30,9 @@ public class ExecutarComandoExpecificoImpl implements ExecutarComandoExpecifico 
     public boolean execute(int comando) {
         Scanner entrada = new Scanner(System.in);
         if (comando == 1) {
-            System.out.println("Digite o numero da conta: ");
-            String numero = entrada.next();
             saque.execute();
             return true;
         } else if (comando == 2) {
-            System.out.println("Digite o numero da conta: ");
-            String numero = entrada.next();
             deposito.execute();
             return true;
         } else if (comando == 3) {

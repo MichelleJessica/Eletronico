@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class DepositoImpl implements Deposito {
 
-    private int numeroDaConta;
     private double valor;
 
     private final MemoriaContaRepository repository;
@@ -19,8 +18,10 @@ public class DepositoImpl implements Deposito {
     @Override
     public Double execute() {
         Conta conta;
-        conta = repository.findById(numeroDaConta);
         Scanner entrada = new Scanner(System.in);
+        System.out.println("Digite o numero da conta: ");
+        int numeroDaConta = entrada.nextInt();
+        conta = repository.findById(numeroDaConta);
         System.out.println("Digite o valor a depositar (máx R$1000,00): ");
         this.valor = entrada.nextDouble();
         conta.adicionaSaldo(valor);
