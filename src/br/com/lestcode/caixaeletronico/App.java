@@ -10,7 +10,9 @@ public class App {
         SelecionaComando selecionaComando = new SelecionaComando();
 
         while (selecionaComando.executar()){
-            System.out.printf("%nExecute um novo comando. %n");
+            System.out.println();
+            System.out.println("Execute um novo comando.");
+
         }
 
         System.out.println("Atendimento finalizado!");

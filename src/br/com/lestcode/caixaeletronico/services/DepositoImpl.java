@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class DepositoImpl implements Deposito {
 
-    private double valor;
-
     private final MemoriaContaRepository repository;
 
     public DepositoImpl(MemoriaContaRepository repository) {
@@ -23,15 +21,15 @@ public class DepositoImpl implements Deposito {
         int numeroDaConta = entrada.nextInt();
         conta = repository.findById(numeroDaConta);
         System.out.println("Digite o valor a depositar (máx R$1000,00): ");
-        this.valor = entrada.nextDouble();
+        double valor = entrada.nextDouble();
         conta.adicionaSaldo(valor);
         if (valor >= 1.00 && valor <= 1000.00) {
             System.out.println("Foi depositado: R$ " + valor);
-            System.out.printf("Conta %d o saldo atual é de: R$ %.2f", numeroDaConta, conta.getSaldo());
         } else {
             System.out.println("Valor invalido!");
             return null;
         }
+        System.out.printf("Conta %d o saldo atual é de: R$ %.2f %n", numeroDaConta, conta.getSaldo());
         return valor;
     }
 }

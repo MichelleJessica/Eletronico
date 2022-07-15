@@ -4,10 +4,11 @@ import br.com.lestcode.caixaeletronico.model.Conta;
 
 /**
  * Transferir o valor da conta de origem para a conta destino.
+ * void transferir (double valor, int numeroContaDestino, int origem);
  */
 
 public interface Transferencia {
-    void transferir (double valor, Conta numeroContaDestino, Conta origem);
+    void transferir ();
 
 }
 

@@ -10,11 +10,14 @@ public class ExecutarComandoExpecificoImpl implements ExecutarComandoExpecifico 
     private final Deposito deposito;
     private final AbrirConta abrirConta;
 
+    private final Transferencia transferencia;
+
     public ExecutarComandoExpecificoImpl() {
         MemoriaContaRepository repository = new MemoriaContaRepository();
         this.saque = new SaqueImpl(repository);
         this.deposito = new DepositoImpl(repository);
         this.abrirConta = new AbrirContaImpl(repository);
+        this.transferencia = new TransferenciaEntreContasImpl(repository);
     }
 
     // implementar as interfaces / usar if else no metodo sacar
@@ -37,6 +40,9 @@ public class ExecutarComandoExpecificoImpl implements ExecutarComandoExpecifico 
             return true;
         } else if (comando == 3) {
             abrirConta.execute();
+            return true;
+        } else if (comando == 4) {
+            transferencia.transferir();
             return true;
         } else if (comando == 0) {
             System.out.println("Transação encerrada!");
