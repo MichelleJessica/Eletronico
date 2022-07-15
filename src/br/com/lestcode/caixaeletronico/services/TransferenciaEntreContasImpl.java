@@ -26,11 +26,11 @@ public class TransferenciaEntreContasImpl implements Transferencia {
         System.out.println("Digite o numero da conta de destino: ");
         int numeroContaDestino = entrada.nextInt();
         contaDestino = repository.findById(numeroContaDestino);
-        System.out.println("Digite o valor a transferir (máx R$5000,00): ");
+        System.out.println("Digite o valor a transferir (máx R$500,00): ");
         valor = entrada.nextDouble();
         contaOrigem.retirarSaldo(valor);
         contaDestino.adicionaSaldo(valor);
-        if (valor >= 1.00 && valor <= 5000.00) {
+        if (valor >= 1.00 && valor <= 500.00) {
             System.out.printf("O valor de R$ %.2f, foi transferido da conta %d para a conta %d.", valor, numeroContaDeOrigem, numeroContaDestino);
             System.out.println();
             System.out.printf("Conta %d, seu saldo atual é de R$ %.2f. %n", numeroContaDeOrigem, contaOrigem.getSaldo());
